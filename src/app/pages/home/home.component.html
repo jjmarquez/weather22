@@ -1,0 +1,27 @@
+<div class="home-container">
+    <div class="form-home">
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Ingrese la ciudad</mat-label>
+                <input matInput placeholder="Ex. Pizza" value="Sushi" [(ngModel)]="this.input"
+                    [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+        </form>
+        <button mat-stroked-button color="accent" (click)="this.sendCity()">Buscar</button>
+    </div>
+    <div *ngIf="this.weatherData" class="city-data-class">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{this.weatherData.name}}, {{this.weatherData.sys?.country}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="thermostat"></mat-icon> {{this.weatherData?.main?.temp}} </p>
+                <p></p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
